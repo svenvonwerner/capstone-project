@@ -1,0 +1,41 @@
+import Card from './components/ChallengeCard.js';
+import styled from 'styled-components';
+
+function App() {
+  const cards = [
+    {
+      headlineCard: 'This is a Challenge',
+      descriptionCard: 'A photography challenge is a way to push your photography skills.',
+    },
+    {
+      headlineCard: 'This is a Challenge',
+      descriptionCard: 'A photography challenge is a way to push your photography skills.',
+    },
+    {
+      headlineCard: 'This is a Challenge',
+      descriptionCard: 'A photography challenge is a way to push your photography skills.',
+    },
+    {
+      headlineCard: 'This is a Challenge',
+      descriptionCard: 'A photography challenge is a way to push your photography skills.',
+    },
+  ];
+
+  return (
+    <>
+      <h1>Photo Challenge List</h1>
+      <Wrapper>
+        {cards.map((card, index) => (
+          <Card key={index} headlineCard={card.headlineCard} descriptionCard={card.descriptionCard} />
+        ))}
+      </Wrapper>
+    </>
+  );
+}
+
+const Wrapper = styled.section`
+  display: grid;
+  gap: 30px;
+`;
+
+export default App;
