@@ -20,5 +20,4 @@ const Wrapper = styled.li`
 const Description = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 `;
