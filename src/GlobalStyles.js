@@ -12,16 +12,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-family: 'Lato', sans-serif;
     font-size: 1.5rem;
     font-weight: 300;
-
   }
   h2 {
     font-size: 1.0rem;
-    font-family: 'Lato', sans-serif;
     text-transform: uppercase ;
-
   }
   `;
 
