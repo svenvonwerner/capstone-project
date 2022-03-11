@@ -8,7 +8,3 @@ describe('Listcard', () => {
     expect(cardList).toBeInTheDocument();
   });
 });
-
-// describe('Listcard', () =>
-
-// );
