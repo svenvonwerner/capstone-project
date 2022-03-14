@@ -1,14 +1,20 @@
 import styled from 'styled-components';
 import CheckoffButton from './CheckoffButton.js';
 
-export default function Card({ headlineCard, descriptionCard, isCheckedOff, onCheckClick }) {
+export default function Card({ headlineCard, descriptionCard, checkedStatus, onCheckClick, ...props }) {
   return (
     <Wrapper>
       <Content>
         <h2>{headlineCard}</h2>
         <Description>{descriptionCard}</Description>
       </Content>
-      <CheckoffButton isCheckedOff={isCheckedOff} onCheckClick={onCheckClick} />
+      <CheckoffButton
+        checkedStatus={checkedStatus}
+        onCheckClick={onCheckClick}
+        cardHeadline={headlineCard}
+        description={descriptionCard}
+        {...props}
+      />
     </Wrapper>
   );
 }
