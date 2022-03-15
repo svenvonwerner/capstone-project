@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import useLocalStorage from '../hooks/useLocalStorage.js';
 import CheckoffActive from '../images/checkoffActive.svg';
 import CheckoffNotActive from '../images/checkoffNotActive.svg';
 
