@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import CheckoffActive from '../images/checkoffActive.svg';
 import CheckoffNotActive from '../images/checkoffNotActive.svg';
 
-export default function CheckoffButton() {
+export default function CheckoffButton({ checkedStatus, onCheckClick, id, cardHeadline, description }) {
   const [isCheckedOff, setIsCheckedOff] = useState(false);
   return (
-    <Checkicon type="button" onClick={onCheckClick}>
-      {isCheckedOff ? (
+    <Checkicon type="button" onClick={handleCheck}>
+      {checkedStatus ? (
         <img src={CheckoffActive} alt="Challenge is done" />
       ) : (
         <img src={CheckoffNotActive} alt="Challenge is not done" />
@@ -15,7 +15,12 @@ export default function CheckoffButton() {
     </Checkicon>
   );
 
-  function onCheckClick() {
+  // function onCheckClick() {
+  //   setIsCheckedOff(!isCheckedOff);
+  // }
+
+  function handleCheck() {
+    onCheckClick({ id: id, headlineCard: cardHeadline, descriptionCard: description, checkedStatus: !checkedStatus });
     setIsCheckedOff(!isCheckedOff);
   }
 }

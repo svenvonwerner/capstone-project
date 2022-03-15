@@ -1,40 +1,53 @@
 import styled from 'styled-components';
 import Card from './ChallengeCard.js';
-import { nanoid } from 'nanoid';
-
-const cards = [
-  {
-    id: nanoid(),
-    headlineCard: 'This is a Challenge',
-    descriptionCard: 'A photography challenge is a way to push your photography skills.',
-  },
-  {
-    id: nanoid(),
-    headlineCard: 'This is a Challenge',
-    descriptionCard: 'A photography challenge is a way to push your photography skills.',
-  },
-  {
-    id: nanoid(),
-    headlineCard: 'This is a Challenge',
-    descriptionCard: 'A photography challenge is a way to push your photography skills.',
-  },
-  {
-    id: nanoid(),
-    headlineCard: 'This is a Challenge',
-    descriptionCard: 'A photography challenge is a way to push your photography skills.',
-  },
-];
+import cards from './ChallengeData.js';
+import useLocalStorage from '../hooks/useLocalStorage.js';
 
 export default function ListCard() {
+  const [challengeData, setChallengeData] = useLocalStorage('challangeData', cards);
+
+  function sorting(cardArray) {
+    console.log(cardArray);
+    const sortArray = type => {
+      const types = {
+        id: 'id',
+      };
+      const sortProperty = types[type];
+      const sortedCards = [...cardArray].sort((a, b) => a[sortProperty] - b[sortProperty]);
+      console.log(sortedCards);
+      setChallengeData(sortedCards);
+    };
+    sortArray('id');
+  }
+
   return (
     <>
       <Wrapper role="list" aria-label="challenges">
-        {cards.map(card => (
-          <Card key={card.id} headlineCard={card.headlineCard} descriptionCard={card.descriptionCard} />
+        {challengeData.map(card => (
+          <Card
+            key={card.id}
+            id={card.id}
+            headlineCard={card.headlineCard}
+            descriptionCard={card.descriptionCard}
+            checkedStatus={card.checkedStatus}
+            onCheckClick={handleCheckClick}
+          />
         ))}
       </Wrapper>
     </>
   );
+
+  function handleCheckClick(cardObject) {
+    if (challengeData === cards) {
+      const otherCards = cards.filter(card => card.id !== cardObject.id);
+      const cardArray = [cardObject, ...otherCards];
+      sorting(cardArray);
+    } else {
+      const otherCards = challengeData.filter(card => card.id !== cardObject.id);
+      const cardArray = [cardObject, ...otherCards];
+      sorting(cardArray);
+    }
+  }
 }
 
 const Wrapper = styled.ul`
