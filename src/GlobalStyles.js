@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    font-size: 1rem;
     margin: 1rem;
     font-family: 'Lato', sans-serif;
     background-color: #EDEFF4;

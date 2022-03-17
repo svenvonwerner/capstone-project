@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import Card from './ChallengeCard.js';
 
 describe('Card', () => {
-  it('Render a subheadline and a description', () => {
+  it('renders a subheadline and a description', () => {
     render(
       <Card headlineCard="1000 Schritte" descriptionCard="Gehe 1000 Schritte von Deiner Haustür und mache ein Foto" />
     );
