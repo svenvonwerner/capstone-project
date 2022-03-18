@@ -24,16 +24,16 @@ export default function Form({ handleCreateCard }) {
       <FormBox onSubmit={handleSubmit(card => onSubmit(card))}>
         {/* register your input into the hook by invoking the "register" function */}
         <label htmlFor="title">Title</label>
-        <Inputbox id="title" defaultValue="Title" {...register('headlineCard')} />
+        <Inputbox maxLength="30" id="title" {...register('headlineCard')} />
 
         <label htmlFor="category">Category</label>
-        <Inputbox id="category" defaultValue="Category" {...register('categoryCard')} />
+        <Inputbox maxLength="30" id="category" {...register('categoryCard')} />
 
         <label htmlFor="author">Name</label>
-        <Inputbox id="author" defaultValue="Name" {...register('authorCard')} />
+        <Inputbox maxLength="30" id="author" {...register('authorCard')} />
 
         <label htmlFor="description">Description</label>
-        <TextBox id="description" defaultValue="Description" {...register('descriptionCard')} />
+        <TextBox maxLength="300" id="description" {...register('descriptionCard')} />
 
         <ButtonSave type="submit">Save</ButtonSave>
       </FormBox>
