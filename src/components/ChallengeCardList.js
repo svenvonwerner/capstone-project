@@ -1,25 +1,7 @@
 import styled from 'styled-components';
 import Card from './ChallengeCard.js';
-import cards from './ChallengeData.js';
-import useLocalStorage from '../hooks/useLocalStorage.js';
 
-export default function ListCard() {
-  const [challengeData, setChallengeData] = useLocalStorage('challangeData', cards);
-
-  function sorting(cardArray) {
-    console.log(cardArray);
-    const sortArray = type => {
-      const types = {
-        id: 'id',
-      };
-      const sortProperty = types[type];
-      const sortedCards = [...cardArray].sort((a, b) => a[sortProperty] - b[sortProperty]);
-      console.log(sortedCards);
-      setChallengeData(sortedCards);
-    };
-    sortArray('id');
-  }
-
+export default function ListCard({ handleCheckClick, challengeData }) {
   return (
     <>
       <Wrapper role="list" aria-label="challenges">
@@ -31,23 +13,13 @@ export default function ListCard() {
             descriptionCard={card.descriptionCard}
             checkedStatus={card.checkedStatus}
             onCheckClick={handleCheckClick}
+            categoryCard={card.categoryCard}
+            authorCard={card.authorCard}
           />
         ))}
       </Wrapper>
     </>
   );
-
-  function handleCheckClick(cardObject) {
-    if (challengeData === cards) {
-      const otherCards = cards.filter(card => card.id !== cardObject.id);
-      const cardArray = [cardObject, ...otherCards];
-      sorting(cardArray);
-    } else {
-      const otherCards = challengeData.filter(card => card.id !== cardObject.id);
-      const cardArray = [cardObject, ...otherCards];
-      sorting(cardArray);
-    }
-  }
 }
 
 const Wrapper = styled.ul`
