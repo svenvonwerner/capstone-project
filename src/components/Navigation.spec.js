@@ -11,10 +11,10 @@ describe('Form', () => {
       </MemoryRouter>
     );
 
-    const button1 = screen.getByAltText('Switch to Form');
-    const button2 = screen.getByAltText('Switch to List');
+    const formIcon = screen.getByAltText('Switch to Form');
+    const listIcon = screen.getByAltText('Switch to List');
 
-    expect(button1).toBeInTheDocument();
-    expect(button2).toBeInTheDocument();
+    expect(formIcon).toBeInTheDocument();
+    expect(listIcon).toBeInTheDocument();
   });
 });

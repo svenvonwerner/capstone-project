@@ -13,51 +13,37 @@ function App() {
       <Header />
       <MainContainer>
         <Routes>
-          <Route
-            path="/"
-            element={<ChallengeListPage handleCheckClick={handleCheckClick} challengeData={challengeData} />}
-          />
+          <Route path="/" element={<ChallengeListPage onCheckClick={onCheckClick} challengeData={challengeData} />} />
 
-          <Route path="/FormPage" element={<CreateChallengePage handleCreateCard={handleCreateCard} />} />
+          <Route path="/FormPage" element={<CreateChallengePage onCreateCard={onCreateCard} />} />
         </Routes>
       </MainContainer>
       <Navigation />
     </AppGrid>
   );
-
-  function handleCheckClick(cardObject) {
-    const otherCards = challengeData.filter(card => card.id !== cardObject.id);
-    const cardArray = [cardObject, ...otherCards];
-    sorting(cardArray);
+  //Function for listing cards (SVW)
+  function onCheckClick(cardid) {
+    const updatedChallengeData = [...challengeData];
+    const cardIndex = updatedChallengeData.findIndex(card => card.id === cardid);
+    updatedChallengeData[cardIndex].checkedStatus = !updatedChallengeData[cardIndex].checkedStatus;
+    setChallengeData(updatedChallengeData);
   }
 
-  function sorting(cardArray) {
-    const sortArray = type => {
-      const types = {
-        id: 'id',
-      };
-      const sortProperty = types[type];
-      const sortedCards = [...cardArray].sort((a, b) => a[sortProperty] - b[sortProperty]);
-
-      setChallengeData(sortedCards);
-    };
-    sortArray('id');
-  }
-
-  function handleCreateCard(createdCard) {
+  //Function for creating a card via form (SVW)
+  function onCreateCard(createdCard) {
     setChallengeData([createdCard, ...challengeData]);
   }
 }
 
 const AppGrid = styled.div`
   display: grid;
-  grid-template-rows: 48px 1 fr 48px;
+  grid-template-rows: 48px 1fr 48px;
 `;
 
 const MainContainer = styled.main`
   height: 100vh;
   padding: 3rem 1rem;
-  overflow-y: scroll;
+  overflow-y: auto;
 `;
 
 export default App;

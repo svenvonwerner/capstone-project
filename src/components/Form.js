@@ -2,17 +2,15 @@ import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { nanoid } from 'nanoid';
 
-export default function Form({ handleCreateCard }) {
+export default function Form({ onCreateCard }) {
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
 
-  // const onSubmit = data => console.log(data);
-
   function onSubmit(card) {
-    handleCreateCard({
+    onCreateCard({
       id: nanoid(),
       headlineCard: card.headlineCard,
       descriptionCard: card.descriptionCard,
@@ -21,7 +19,6 @@ export default function Form({ handleCreateCard }) {
       authorCard: card.authorCard,
     });
   }
-  // console.log(watch('example')); // watch input value by passing the name of it
 
   return (
     <FormContainer>

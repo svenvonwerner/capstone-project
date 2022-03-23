@@ -1,10 +1,8 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import CheckoffActive from '../images/checkoffActive.svg';
 import CheckoffNotActive from '../images/checkoffNotActive.svg';
 
-export default function CheckoffButton({ checkedStatus, onCheckClick, id, cardHeadline, description }) {
-  const [isCheckedOff, setIsCheckedOff] = useState(false);
+export default function CheckoffButton({ checkedStatus, onCheckClick, id }) {
   return (
     <Checkicon type="button" onClick={handleCheck}>
       {checkedStatus ? (
@@ -15,13 +13,8 @@ export default function CheckoffButton({ checkedStatus, onCheckClick, id, cardHe
     </Checkicon>
   );
 
-  // function onCheckClick() {
-  //   setIsCheckedOff(!isCheckedOff);
-  // }
-
   function handleCheck() {
-    onCheckClick({ id: id, headlineCard: cardHeadline, descriptionCard: description, checkedStatus: !checkedStatus });
-    setIsCheckedOff(!isCheckedOff);
+    onCheckClick(id);
   }
 }
 
