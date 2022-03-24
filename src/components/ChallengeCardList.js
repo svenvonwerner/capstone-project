@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Card from './ChallengeCard.js';
 
-export default function ListCard({ handleCheckClick, challengeData }) {
+export default function ListCard({ onCheckClick, challengeData }) {
   return (
     <>
       <Wrapper role="list" aria-label="challenges">
@@ -12,7 +12,7 @@ export default function ListCard({ handleCheckClick, challengeData }) {
             headlineCard={card.headlineCard}
             descriptionCard={card.descriptionCard}
             checkedStatus={card.checkedStatus}
-            onCheckClick={handleCheckClick}
+            onCheckClick={onCheckClick}
             categoryCard={card.categoryCard}
             authorCard={card.authorCard}
           />

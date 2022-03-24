@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="Gruppe_240" data-name="Gruppe 240" transform="translate(-1327 -4367)">
+    <g id="Rechteck_1473" data-name="Rechteck 1473" transform="translate(1327 4367)" stroke="#000" stroke-linejoin="round" stroke-width="1">
+      <rect width="30" height="30" rx="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="29" height="29" rx="1.5" fill="none"/>
+    </g>
+    <rect id="Rechteck_1474" data-name="Rechteck 1474" width="2" height="16" transform="translate(1341 4374)" fill="#fff"/>
+    <rect id="Rechteck_1475" data-name="Rechteck 1475" width="2" height="16" transform="translate(1350 4381) rotate(90)" fill="#fff"/>
+  </g>
+</svg>
