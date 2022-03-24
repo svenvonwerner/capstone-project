@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import Card from './ChallengeCard.js';
+import ChallengeCard from './ChallengeCard.js';
 
-export default function ListCard({ onCheckClick, challengeData }) {
+export default function ChallengeCardList({ onCheckClick, challengeData, onDeleteCard }) {
   return (
     <>
       <Wrapper role="list" aria-label="challenges">
         {challengeData.map(card => (
-          <Card
+          <ChallengeCard
             key={card.id}
             id={card.id}
             headlineCard={card.headlineCard}
@@ -15,6 +15,7 @@ export default function ListCard({ onCheckClick, challengeData }) {
             onCheckClick={onCheckClick}
             categoryCard={card.categoryCard}
             authorCard={card.authorCard}
+            onDeleteCard={onDeleteCard}
           />
         ))}
       </Wrapper>

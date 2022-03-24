@@ -1,9 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import Form from './Form.js';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('Form', () => {
   it('renders four input fields and submit-button', () => {
-    render(<Form />);
+    render(
+      <MemoryRouter>
+        <Form />
+      </MemoryRouter>
+    );
 
     const input1 = screen.getByLabelText('Title');
     const input2 = screen.getByLabelText('Category');

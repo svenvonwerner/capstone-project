@@ -6,12 +6,12 @@ import { NavLink } from 'react-router-dom';
 export default function Navigation() {
   return (
     <NavBar>
-      <NavButton to="/FormPage">
+      <NavLink to="/FormPage">
         <ImgIcon src={iconAddItem} alt="Switch to Form" />
-      </NavButton>
-      <NavButton to="/">
+      </NavLink>
+      <NavLink to="/">
         <ImgIcon src={iconChecklist} alt="Switch to List" />
-      </NavButton>
+      </NavLink>
     </NavBar>
   );
 }
@@ -29,8 +29,6 @@ const NavBar = styled.nav`
   bottom: 0;
   width: 100%;
 `;
-
-const NavButton = styled(NavLink)``;
 
 const ImgIcon = styled.img`
   width: 25px;

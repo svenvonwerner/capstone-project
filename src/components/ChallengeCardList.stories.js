@@ -1,8 +1,8 @@
-import ListCard from './ChallengeCardList.js';
+import ChallengeCardList from './ChallengeCardList.js';
 
 export default {
   title: 'components/List',
-  component: ListCard,
+  component: ChallengeCardList,
 };
 
-export const Default = () => <ListCard />;
+export const Default = () => <ChallengeCardList />;
