@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import ChallengeCardList from './ChallengeCardList.js';
 
 describe('Listcard', () => {
-  it('Render a list of challenge-cards', () => {
+  it('renders a list of challenge-cards', () => {
     render(
       <ChallengeCardList
         challengeData={[

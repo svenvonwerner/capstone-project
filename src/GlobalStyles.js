@@ -10,7 +10,6 @@ const GlobalStyle = createGlobalStyle`
     padding:0;
     font-size: 1rem;
     font-family: 'Lato', sans-serif;
-    /* background-color: #EDEFF4; */
   }
 
 
