@@ -1,8 +1,10 @@
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { nanoid } from 'nanoid';
 
 export default function Form({ onCreateCard }) {
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
@@ -18,6 +20,7 @@ export default function Form({ onCreateCard }) {
       categoryCard: card.categoryCard,
       authorCard: card.authorCard,
     });
+    navigate(-1);
   }
 
   return (

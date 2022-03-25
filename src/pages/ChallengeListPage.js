@@ -1,11 +1,11 @@
-import ListCard from '../components/ChallengeCardList.js';
+import ChallengeCardList from '../components/ChallengeCardList.js';
 import styled from 'styled-components';
 
-export default function ChallengeListPage({ onCheckClick, challengeData }) {
+export default function ChallengeListPage({ onCheckClick, challengeData, onDeleteCard }) {
   return (
     <>
       <Subheadline>My Challenge Photo List</Subheadline>
-      <ListCard onCheckClick={onCheckClick} challengeData={challengeData} />
+      <ChallengeCardList onCheckClick={onCheckClick} challengeData={challengeData} onDeleteCard={onDeleteCard} />
     </>
   );
 }

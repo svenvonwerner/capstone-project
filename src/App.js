@@ -13,7 +13,12 @@ function App() {
       <Header />
       <MainContainer>
         <Routes>
-          <Route path="/" element={<ChallengeListPage onCheckClick={onCheckClick} challengeData={challengeData} />} />
+          <Route
+            path="/"
+            element={
+              <ChallengeListPage onCheckClick={onCheckClick} challengeData={challengeData} onDeleteCard={deleteCard} />
+            }
+          />
 
           <Route path="/FormPage" element={<CreateChallengePage onCreateCard={onCreateCard} />} />
         </Routes>
@@ -32,6 +37,11 @@ function App() {
   //Function for creating a card via form (SVW)
   function onCreateCard(createdCard) {
     setChallengeData([createdCard, ...challengeData]);
+  }
+
+  //Function für deleting a card
+  function deleteCard(cardid) {
+    setChallengeData(challengeData.filter(card => card.id !== cardid));
   }
 }
 

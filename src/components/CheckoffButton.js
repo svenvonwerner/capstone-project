@@ -4,13 +4,13 @@ import CheckoffNotActive from '../images/checkoffNotActive.svg';
 
 export default function CheckoffButton({ checkedStatus, onCheckClick, id }) {
   return (
-    <Checkicon type="button" onClick={handleCheck}>
+    <CheckButton type="button" onClick={handleCheck}>
       {checkedStatus ? (
-        <img src={CheckoffActive} alt="Challenge is done" />
+        <CheckIcon src={CheckoffActive} alt="Challenge is done" />
       ) : (
-        <img src={CheckoffNotActive} alt="Challenge is not done" />
+        <CheckIcon src={CheckoffNotActive} alt="Challenge is not done" />
       )}
-    </Checkicon>
+    </CheckButton>
   );
 
   function handleCheck() {
@@ -18,8 +18,11 @@ export default function CheckoffButton({ checkedStatus, onCheckClick, id }) {
   }
 }
 
-const Checkicon = styled.button`
+const CheckButton = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+`;
+const CheckIcon = styled.img`
+  width: 20px;
 `;

@@ -1,11 +1,11 @@
-import Card from './ChallengeCard.js';
+import ChallengeCard from './ChallengeCard.js';
 
 export default {
-  title: 'components/Card',
-  component: Card,
+  title: 'components/ChallengeCard',
+  component: ChallengeCard,
 };
 
-const Template = args => <Card {...args} />;
+const Template = args => <ChallengeCard {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

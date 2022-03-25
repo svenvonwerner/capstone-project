@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import ListCard from './ChallengeCardList.js';
+import ChallengeCardList from './ChallengeCardList.js';
 
 describe('Listcard', () => {
-  it('Render a list of challenge-cards', () => {
+  it('renders a list of challenge-cards', () => {
     render(
-      <ListCard
+      <ChallengeCardList
         challengeData={[
           {
             key: '123',

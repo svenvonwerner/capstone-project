@@ -1,41 +1,35 @@
 import styled from 'styled-components';
 import CheckoffButton from './CheckoffButton.js';
+import DeleteButton from './DeleteButton.js';
 
-export default function Card({
-  headlineCard,
-  descriptionCard,
-  checkedStatus,
-  onCheckClick,
-  categoryCard,
-  authorCard,
-  ...props
-}) {
+export default function ChallengeCard({ headlineCard, descriptionCard, onCheckClick, onDeleteCard, ...props }) {
   return (
     <Wrapper>
       <Content>
         <h2>{headlineCard}</h2>
         <Description>{descriptionCard}</Description>
       </Content>
-      <CheckoffButton
-        checkedStatus={checkedStatus}
-        onCheckClick={onCheckClick}
-        cardHeadline={headlineCard}
-        description={descriptionCard}
-        categoryCard={categoryCard}
-        authorCard={authorCard}
-        {...props}
-      />
+      <IconSection>
+        <DeleteButton onDeleteCard={onDeleteCard} {...props} />
+        <CheckoffButton onCheckClick={onCheckClick} {...props} />
+      </IconSection>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.section`
-  background-color: white;
+const Wrapper = styled.article`
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  height: 10rem;
+  min-height: 10rem;
   padding: 1rem;
-  display: grid;
-  grid-template-columns: 70% auto;
+`;
+
+const IconSection = styled.section`
+  display: flex;
+  justify-content: flex-end;
 `;
 
 const Content = styled.li`
