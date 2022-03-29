@@ -1,7 +1,15 @@
 import styled from 'styled-components';
 import ChallengeCard from './ChallengeCard.js';
 
-export default function ChallengeCardList({ onCheckClick, challengeData, onDeleteCard }) {
+export default function ChallengeCardList({
+  onCheckClick,
+  challengeData,
+  onDeleteCard,
+  image,
+  handleSetImage,
+  handlePhotoUpload,
+}) {
+  console.log(challengeData);
   return (
     <>
       <Wrapper role="list" aria-label="challenges">
@@ -16,6 +24,10 @@ export default function ChallengeCardList({ onCheckClick, challengeData, onDelet
             categoryCard={card.categoryCard}
             authorCard={card.authorCard}
             onDeleteCard={onDeleteCard}
+            image={image}
+            photo={card.photo}
+            handleSetImage={handleSetImage}
+            handlePhotoUpload={handlePhotoUpload}
           />
         ))}
       </Wrapper>

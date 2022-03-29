@@ -11,6 +11,14 @@ export default function Form({ onCreateCard }) {
     handleSubmit,
   } = useForm();
 
+  const categories = {
+    other: 'Other',
+    nature: 'Nature',
+    architecture: 'Architecture',
+    human: 'Human',
+    animals: 'Animals',
+  };
+
   function onSubmit(card) {
     onCreateCard({
       id: nanoid(),
@@ -19,8 +27,9 @@ export default function Form({ onCreateCard }) {
       checkedStatus: false,
       categoryCard: card.categoryCard,
       authorCard: card.authorCard,
+      photo: ['a', 'b', 'c'],
     });
-    navigate(-1);
+    navigate('/ListPage');
   }
 
   return (
@@ -31,9 +40,20 @@ export default function Form({ onCreateCard }) {
         <Inputbox maxLength="30" id="title" {...register('headlineCard', { required: true })} />
         {errors.headlineCard && <p>This field is required</p>}
 
-        <InputLabel htmlFor="category">Category</InputLabel>
+        {/* <InputLabel htmlFor="category">Category</InputLabel>
         <Inputbox maxLength="30" id="category" {...register('categoryCard', { required: true })} />
-        {errors.categoryCard && <p>Please check the First Name</p>}
+        {errors.categoryCard && <p>Please check the First Name</p>} */}
+
+        <InputLabel htmlFor="category">Category</InputLabel>
+        <InputSelect id="category" {...register('categoryCard', { required: true })}>
+          {Object.entries(categories).map(([value, text], index) => {
+            return (
+              <option key={index} value={value}>
+                {text}
+              </option>
+            );
+          })}
+        </InputSelect>
 
         <InputLabel htmlFor="author">Name</InputLabel>
         <Inputbox maxLength="30" id="author" {...register('authorCard', { required: true })} />
@@ -75,6 +95,16 @@ const Inputbox = styled.input`
   margin-bottom: 12px;
   border-radius: 3px;
   border: 1px solid black;
+`;
+
+const InputSelect = styled.select`
+  width: 100%;
+  padding: 12px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  border-radius: 3px;
+  border: 1px solid black;
+  background-color: white;
 `;
 
 const TextBox = styled.textarea`

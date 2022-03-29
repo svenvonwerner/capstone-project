@@ -1,23 +1,47 @@
 import styled from 'styled-components';
 import CheckoffButton from './CheckoffButton.js';
 import DeleteButton from './DeleteButton.js';
+import ChallengeCardGallery from './ChallengeCardGallery.js';
 
-export default function ChallengeCard({ headlineCard, descriptionCard, onCheckClick, onDeleteCard, ...props }) {
+export default function ChallengeCard({
+  id,
+  headlineCard,
+  descriptionCard,
+  onCheckClick,
+  onDeleteCard,
+  image,
+  handleSetImage,
+  handlePhotoUpload,
+  photo,
+
+  ...props
+}) {
+  console.log(photo);
   return (
     <Wrapper>
+      {/* {photo.map(image => {
+        return <img key={image} src={image} alt="" style={{ width: '200px' }} />;
+      })} */}
       <Content>
         <h2>{headlineCard}</h2>
         <Description>{descriptionCard}</Description>
       </Content>
       <IconSection>
-        <DeleteButton onDeleteCard={onDeleteCard} {...props} />
-        <CheckoffButton onCheckClick={onCheckClick} {...props} />
+        <DeleteButton onDeleteCard={() => onDeleteCard(id)} {...props} />
+        <CheckoffButton onCheckClick={() => onCheckClick(id)} {...props} />
       </IconSection>
+      <ChallengeCardGallery
+        image={image}
+        handleSetImage={handleSetImage}
+        id={id}
+        handlePhotoUpload={handlePhotoUpload}
+      />
+      <button onClick={() => handlePhotoUpload(id)}>AddButton</button>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.article`
+const Wrapper = styled.li`
   display: flex;
   flex-direction: column;
   background-color: #f2f2f2;
@@ -25,6 +49,7 @@ const Wrapper = styled.article`
   border-radius: 5px;
   min-height: 10rem;
   padding: 1rem;
+  list-style: none;
 `;
 
 const IconSection = styled.section`
@@ -32,9 +57,8 @@ const IconSection = styled.section`
   justify-content: flex-end;
 `;
 
-const Content = styled.li`
+const Content = styled.section`
   line-height: 1.5rem;
-  list-style: none;
 `;
 
 const Description = styled.p`
