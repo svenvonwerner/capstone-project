@@ -1,5 +1,5 @@
 import useLocalStorage from './hooks/useLocalStorage.js';
-import LandingPage from './pages/LandingPage.js';
+import LandingPage from './pages/StartPage.js';
 import CreateChallengePage from './pages/CreateChallengePage.js';
 import ChallengeListPage from './pages/ChallengeListPage.js';
 import { Routes, Route } from 'react-router-dom';
@@ -30,6 +30,7 @@ function App() {
                 image={image}
                 handleSetImage={handleSetImage}
                 handlePhotoUpload={handlePhotoUpload}
+                // handleDeletePhoto={handleDeletePhoto}
               />
             }
           />
@@ -58,18 +59,29 @@ function App() {
     setChallengeData(challengeData.filter(card => card.id !== cardid));
   }
 
-  function handlePhotoUpload(id) {
-    // console.log(challengeData.find(item => item.id === id));
+  function handlePhotoUpload(id, newPhoto) {
     setChallengeData(
       challengeData.map(item => {
         if (item.id === id) {
-          return { ...item, photo: image };
+          return { ...item, photo: [...item.photo, newPhoto] };
         } else {
           return item;
         }
       })
     );
   }
+
+  // function handleDeletePhoto(id, picture) {
+  //   setChallengeData(challengeData.filter((item, index) => item.photo[index] !== picture));
+
+  //   // challengeData.map(item => {
+  //   //   if (item.id === id) {
+  //   //     return { ...item, photo: [...item.photo, (picture = '')] };
+  //   //   } else {
+  //   //     return item;
+  //   //   }
+  //   // })
+  // }
 }
 
 const AppGrid = styled.div`

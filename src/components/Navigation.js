@@ -6,10 +6,28 @@ import { NavLink } from 'react-router-dom';
 export default function Navigation() {
   return (
     <NavBar>
-      <NavLink to="/FormPage">
+      <NavLink
+        to="/FormPage"
+        style={({ isActive }) =>
+          isActive
+            ? {
+                opacity: 1.0,
+              }
+            : { opacity: 0.5 }
+        }
+      >
         <ImgIcon src={iconAddItem} alt="Switch to Form" />
       </NavLink>
-      <NavLink to="/ListPage">
+      <NavLink
+        to="/ListPage"
+        style={({ isActive }) =>
+          isActive
+            ? {
+                opacity: 1.0,
+              }
+            : { opacity: 0.5 }
+        }
+      >
         <ImgIcon src={iconChecklist} alt="Switch to List" />
       </NavLink>
     </NavBar>

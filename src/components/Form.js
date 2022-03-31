@@ -13,10 +13,11 @@ export default function Form({ onCreateCard }) {
 
   const categories = {
     other: 'Other',
-    nature: 'Nature',
+    animals: 'Animals',
     architecture: 'Architecture',
     human: 'Human',
-    animals: 'Animals',
+    nature: 'Nature',
+    location: 'Location',
   };
 
   function onSubmit(card) {
@@ -27,7 +28,7 @@ export default function Form({ onCreateCard }) {
       checkedStatus: false,
       categoryCard: card.categoryCard,
       authorCard: card.authorCard,
-      photo: ['a', 'b', 'c'],
+      photo: [],
     });
     navigate('/ListPage');
   }
@@ -37,12 +38,8 @@ export default function Form({ onCreateCard }) {
       <FormBox onSubmit={handleSubmit(card => onSubmit(card))}>
         {/* register your input into the hook by invoking the "register" function */}
         <InputLabel htmlFor="title">Title</InputLabel>
-        <Inputbox maxLength="30" id="title" {...register('headlineCard', { required: true })} />
+        <Inputbox maxLength="100" id="title" {...register('headlineCard', { required: true })} />
         {errors.headlineCard && <p>This field is required</p>}
-
-        {/* <InputLabel htmlFor="category">Category</InputLabel>
-        <Inputbox maxLength="30" id="category" {...register('categoryCard', { required: true })} />
-        {errors.categoryCard && <p>Please check the First Name</p>} */}
 
         <InputLabel htmlFor="category">Category</InputLabel>
         <InputSelect id="category" {...register('categoryCard', { required: true })}>
@@ -54,9 +51,8 @@ export default function Form({ onCreateCard }) {
             );
           })}
         </InputSelect>
-
         <InputLabel htmlFor="author">Name</InputLabel>
-        <Inputbox maxLength="30" id="author" {...register('authorCard', { required: true })} />
+        <Inputbox maxLength="100" id="author" {...register('authorCard', { required: true })} />
         {errors.authorCard && <p>This field is required</p>}
 
         <InputLabel htmlFor="description">Description</InputLabel>
@@ -72,6 +68,7 @@ export default function Form({ onCreateCard }) {
 const InputLabel = styled.label`
   font-size: 0.8rem;
   margin-bottom: 0.2rem;
+  letter-spacing: 0.05rem;
 `;
 
 const FormContainer = styled.div`

@@ -1,10 +1,18 @@
 import styled from 'styled-components';
 import axios from 'axios';
+import UploadImg from '../images/iconUploadPhoto.svg';
 
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME;
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET;
 
-export default function ChallengeCardGallery({ image, handleSetImage, id, handlePhotoUpload }) {
+export default function ChallengeCardGallery({
+  photo,
+  image,
+  handleSetImage,
+  id,
+  handlePhotoUpload,
+  // handleDeletePhoto,
+}) {
   function upload(event) {
     const url = `https://api.cloudinary.com/v1_1/${CLOUDNAME}/upload`;
 
@@ -24,50 +32,47 @@ export default function ChallengeCardGallery({ image, handleSetImage, id, handle
 
   function onImageSave(response) {
     handleSetImage([...image, response.data.url]);
-    handlePhotoUpload(id);
+    handlePhotoUpload(id, response.data.url);
   }
-
-  // function handlePhotoUpload(id) {
-  //   // console.log(challengeData.find(item => item.id === id));
-  //   setChallengeData(
-  //     challengeData.map(item => {
-  //       if (item.id === id) {
-  //         return { ...item, photo: [...image, response.data.url]};
-  //       } else {
-  //         return item;
-  //       }
-  //     })
-  //   );
-  // }
 
   return (
     <WrapperSection>
       <div>
-        <input type="file" name="file" onChange={upload} />
+        <label>
+          <Inputbox type="file" name="file" onChange={upload} hidden />
+          <img src={UploadImg} alt="upload" width="35" height="35" />
+        </label>
       </div>
       <WrapperDiv>
-        {image.map(image => {
-          return <img key={image} src={image} alt="" style={{ width: '200px' }} />;
-        })}
+        {photo.map(img => (
+          <img key={img} src={img} alt="" style={{ width: '300px' }} />
+        ))}
       </WrapperDiv>
     </WrapperSection>
   );
 }
 
 const WrapperSection = styled.section`
-  height: 500px;
+  /* width: 360px; */
   display: flex;
-  overflow: auto;
-  white-space: nowrap;
+  flex-direction: column;
   background-color: #f2f2f2;
-  padding-left: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 `;
 const WrapperDiv = styled.div`
+  width: 100%;
+  margin: 3rem 0 3rem 0;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
-  gap: 3rem;
+  overflow-y: scroll;
+  gap: 0.2rem;
+`;
+
+const Inputbox = styled.input`
+  width: 100%;
+  padding: 12px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  border-radius: 3px;
+  /* border: 1px solid black; */
 `;

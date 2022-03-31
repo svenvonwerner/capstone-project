@@ -8,6 +8,7 @@ export default function ChallengeCardList({
   image,
   handleSetImage,
   handlePhotoUpload,
+  // handleDeletePhoto,
 }) {
   console.log(challengeData);
   return (
@@ -28,6 +29,7 @@ export default function ChallengeCardList({
             photo={card.photo}
             handleSetImage={handleSetImage}
             handlePhotoUpload={handlePhotoUpload}
+            // handleDeletePhoto={handleDeletePhoto}
           />
         ))}
       </Wrapper>
@@ -37,7 +39,9 @@ export default function ChallengeCardList({
 
 const Wrapper = styled.ul`
   list-style: none;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 30px;
   padding-left: 0;
 `;

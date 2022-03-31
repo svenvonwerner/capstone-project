@@ -8,6 +8,7 @@ export default function ChallengeListPage({
   handleSetImage,
   image,
   handlePhotoUpload,
+  // handleDeletePhoto,
 }) {
   return (
     <WrapperDiv>
@@ -19,6 +20,7 @@ export default function ChallengeListPage({
         handleSetImage={handleSetImage}
         image={image}
         handlePhotoUpload={handlePhotoUpload}
+        // handleDeletePhoto={handleDeletePhoto}
       />
     </WrapperDiv>
   );

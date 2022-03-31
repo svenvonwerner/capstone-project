@@ -1,14 +1,15 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
-    <HeaderStyle>
+    <HeaderStyle to="/">
       <Headline>CHAPP</Headline>
     </HeaderStyle>
   );
 }
 
-const HeaderStyle = styled.header`
+const HeaderStyle = styled(Link)`
   display: flex;
   align-items: center;
   height: 3rem;
