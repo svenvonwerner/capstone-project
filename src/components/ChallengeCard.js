@@ -15,8 +15,6 @@ export default function ChallengeCard({
   handleSetImage,
   handlePhotoUpload,
   photo,
-  // handleDeletePhoto,
-
   ...props
 }) {
   const [isActive, setIsActive] = useState(false);
@@ -26,8 +24,6 @@ export default function ChallengeCard({
   return (
     <Wrapper>
       <HeaderCard img={photo[0]}></HeaderCard>
-      {/* <img src={photo[2]} alt="1" width="100%" /> */}
-
       <Content>
         <h2>{headlineCard}</h2>
         <Description>{descriptionCard}</Description>
@@ -46,20 +42,9 @@ export default function ChallengeCard({
             id={id}
             handlePhotoUpload={handlePhotoUpload}
             photo={photo}
-            // handleDeletePhoto={handleDeletePhoto}
           />
         </>
       ) : null}
-
-      {/* <LineHr />
-      <ChallengeCardGallery
-        image={image}
-        handleSetImage={handleSetImage}
-        id={id}
-        handlePhotoUpload={handlePhotoUpload}
-        photo={photo}
-      /> */}
-      {/* <button onClick={() => handlePhotoUpload(id)}>AddButton</button> */}
     </Wrapper>
   );
 }

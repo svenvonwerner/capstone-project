@@ -5,14 +5,7 @@ import UploadImg from '../images/iconUploadPhoto.svg';
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME;
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET;
 
-export default function ChallengeCardGallery({
-  photo,
-  image,
-  handleSetImage,
-  id,
-  handlePhotoUpload,
-  // handleDeletePhoto,
-}) {
+export default function ChallengeCardGallery({ photo, image, handleSetImage, id, handlePhotoUpload }) {
   function upload(event) {
     const url = `https://api.cloudinary.com/v1_1/${CLOUDNAME}/upload`;
 
@@ -53,7 +46,6 @@ export default function ChallengeCardGallery({
 }
 
 const WrapperSection = styled.section`
-  /* width: 360px; */
   display: flex;
   flex-direction: column;
   background-color: #f2f2f2;
@@ -74,5 +66,4 @@ const Inputbox = styled.input`
   margin-top: 4px;
   margin-bottom: 12px;
   border-radius: 3px;
-  /* border: 1px solid black; */
 `;

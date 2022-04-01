@@ -8,7 +8,6 @@ export default function ChallengeCardList({
   image,
   handleSetImage,
   handlePhotoUpload,
-  // handleDeletePhoto,
 }) {
   console.log(challengeData);
   return (
@@ -29,7 +28,6 @@ export default function ChallengeCardList({
             photo={card.photo}
             handleSetImage={handleSetImage}
             handlePhotoUpload={handlePhotoUpload}
-            // handleDeletePhoto={handleDeletePhoto}
           />
         ))}
       </Wrapper>

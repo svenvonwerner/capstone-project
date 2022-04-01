@@ -36,11 +36,9 @@ export default function Form({ onCreateCard }) {
   return (
     <FormContainer>
       <FormBox onSubmit={handleSubmit(card => onSubmit(card))}>
-        {/* register your input into the hook by invoking the "register" function */}
         <InputLabel htmlFor="title">Title</InputLabel>
         <Inputbox maxLength="100" id="title" {...register('headlineCard', { required: true })} />
         {errors.headlineCard && <p>This field is required</p>}
-
         <InputLabel htmlFor="category">Category</InputLabel>
         <InputSelect id="category" {...register('categoryCard', { required: true })}>
           {Object.entries(categories).map(([value, text], index) => {
@@ -54,11 +52,9 @@ export default function Form({ onCreateCard }) {
         <InputLabel htmlFor="author">Name</InputLabel>
         <Inputbox maxLength="100" id="author" {...register('authorCard', { required: true })} />
         {errors.authorCard && <p>This field is required</p>}
-
         <InputLabel htmlFor="description">Description</InputLabel>
         <TextBox maxLength="300" id="description" {...register('descriptionCard', { required: true })} />
         {errors.descriptionCard && <p>This field is required</p>}
-
         <ButtonSave type="submit">SAVE</ButtonSave>
       </FormBox>
     </FormContainer>
@@ -111,6 +107,7 @@ const TextBox = styled.textarea`
   border: 1px solid black;
   border-radius: 3px;
 `;
+
 const ButtonSave = styled.button`
   width: 100%;
   border-radius: 3px;

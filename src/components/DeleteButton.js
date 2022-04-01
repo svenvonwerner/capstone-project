@@ -12,6 +12,7 @@ export default function DeleteButton({ onDeleteCard, id }) {
     onDeleteCard(id);
   }
 }
+
 const RemoveButton = styled.button`
   background-color: transparent;
   border: none;

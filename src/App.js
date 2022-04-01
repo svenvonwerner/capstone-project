@@ -30,7 +30,6 @@ function App() {
                 image={image}
                 handleSetImage={handleSetImage}
                 handlePhotoUpload={handlePhotoUpload}
-                // handleDeletePhoto={handleDeletePhoto}
               />
             }
           />
@@ -41,6 +40,7 @@ function App() {
       <Navigation />
     </AppGrid>
   );
+
   //Function for listing cards (SVW)
   function onCheckClick(cardid) {
     const updatedChallengeData = [...challengeData];
@@ -54,11 +54,12 @@ function App() {
     setChallengeData([createdCard, ...challengeData]);
   }
 
-  //Function für deleting a card (SVW)
+  //Function for deleting a card (SVW)
   function deleteCard(cardid) {
     setChallengeData(challengeData.filter(card => card.id !== cardid));
   }
 
+  //Function für uploading photos (SVW)
   function handlePhotoUpload(id, newPhoto) {
     setChallengeData(
       challengeData.map(item => {
@@ -70,18 +71,6 @@ function App() {
       })
     );
   }
-
-  // function handleDeletePhoto(id, picture) {
-  //   setChallengeData(challengeData.filter((item, index) => item.photo[index] !== picture));
-
-  //   // challengeData.map(item => {
-  //   //   if (item.id === id) {
-  //   //     return { ...item, photo: [...item.photo, (picture = '')] };
-  //   //   } else {
-  //   //     return item;
-  //   //   }
-  //   // })
-  // }
 }
 
 const AppGrid = styled.div`

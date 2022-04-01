@@ -28,7 +28,6 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-
   `;
 
 export default GlobalStyle;

@@ -10,7 +10,8 @@ export default function LandingPage() {
           <Headline>CHAPP</Headline>
           <SubHeadline>
             With photo challenges <br />
-            for more quality and fun in your life!
+            for more quality and fun <br />
+            in your life!
           </SubHeadline>
         </div>
       </BorderDiv>
@@ -27,19 +28,18 @@ const BackgroundDiv = styled(Link)`
   background-size: cover;
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
   align-items: center;
   align-content: center;
   color: white;
-  padding-top: 1.2rem;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
+  padding-top: 2.8rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  padding-bottom: 2.7rem;
 `;
 
 const BorderDiv = styled.div`
   width: 100%;
-  height: 79vh;
+  height: 100vh;
   border-style: solid;
   border-color: white;
   border-width: 1px;
@@ -59,4 +59,7 @@ const Headline = styled.h1`
 
 const SubHeadline = styled.p`
   text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 0.02rem;
+  line-height: 1.5rem;
 `;
