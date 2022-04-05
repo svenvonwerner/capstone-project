@@ -59,7 +59,7 @@ function App() {
     setChallengeData(challengeData.filter(card => card.id !== cardid));
   }
 
-  //Function für uploading photos (SVW)
+  //Function for uploading photos (SVW)
   function handlePhotoUpload(id, newPhoto) {
     setChallengeData(
       challengeData.map(item => {
