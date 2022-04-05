@@ -12,8 +12,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Lato', sans-serif;
   }
 
-
-
   h1 {
     font-size: 1.1rem;
     font-weight: 100;
@@ -23,7 +21,13 @@ const GlobalStyle = createGlobalStyle`
   h2 {
     font-size: 1.0rem;
     text-transform: uppercase ;
+    font-weight: normal;
   }
+
+  a {
+    text-decoration: none;
+  }
+
   `;
 
 export default GlobalStyle;

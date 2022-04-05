@@ -1,11 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="20.362" height="20.362" viewBox="0 0 20.362 20.362">
-  <g id="DeleteButton" transform="translate(-2071 -1639)">
-    <g id="Gruppe_241" data-name="Gruppe 241" transform="translate(2071 1639)">
-      <path id="Pfad_237" data-name="Pfad 237" d="M0,0H20.362V20.362H0Z"/>
-    </g>
-    <g id="No" transform="translate(2076 1644)">
-      <rect id="Rechteck_1445" data-name="Rechteck 1445" width="11" height="11" transform="translate(0 0)" fill="none"/>
-      <path id="Vereinigungsmenge_3" data-name="Vereinigungsmenge 3" d="M5.279,6.239.96,10.559,0,9.6,4.319,5.279,0,.96.96,0l4.32,4.319L9.6,0l.96.96-4.32,4.32L10.559,9.6l-.96.96Z" transform="translate(0)" fill="#fff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="Gruppe_250" data-name="Gruppe 250" transform="translate(-3786 -2784)">
+    <rect id="Rechteck_1479" data-name="Rechteck 1479" width="20" height="20" transform="translate(3786 2784)"/>
+    <g id="delete_black_24dp" transform="translate(3788 2786)">
+      <path id="Pfad_263" data-name="Pfad 263" d="M0,0H16V16H0Z" fill="none"/>
+      <path id="Pfad_264" data-name="Pfad 264" d="M5.648,13.53a1.31,1.31,0,0,0,1.3,1.316h5.187a1.31,1.31,0,0,0,1.3-1.316v-7.9H5.648Zm8.428-9.872H11.807L11.159,3H7.917l-.648.658H5V4.974h9.076Z" transform="translate(-1.538 -0.923)" fill="#fff"/>
     </g>
   </g>
 </svg>

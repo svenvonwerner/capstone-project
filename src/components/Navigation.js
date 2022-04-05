@@ -6,10 +6,28 @@ import { NavLink } from 'react-router-dom';
 export default function Navigation() {
   return (
     <NavBar>
-      <NavLink to="/FormPage">
+      <NavLink
+        to="/FormPage"
+        style={({ isActive }) =>
+          isActive
+            ? {
+                opacity: 1.0,
+              }
+            : { opacity: 0.5 }
+        }
+      >
         <ImgIcon src={iconAddItem} alt="Switch to Form" />
       </NavLink>
-      <NavLink to="/">
+      <NavLink
+        to="/ListPage"
+        style={({ isActive }) =>
+          isActive
+            ? {
+                opacity: 1.0,
+              }
+            : { opacity: 0.5 }
+        }
+      >
         <ImgIcon src={iconChecklist} alt="Switch to List" />
       </NavLink>
     </NavBar>
@@ -24,7 +42,7 @@ const NavBar = styled.nav`
   color: white;
   justify-content: space-around;
   align-items: center;
-  box-shadow: 0px -1px 2px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px -2px 4px 2px rgba(0, 0, 0, 0.3);
   position: fixed;
   bottom: 0;
   width: 100%;
